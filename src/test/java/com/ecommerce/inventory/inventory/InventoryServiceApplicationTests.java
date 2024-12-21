@@ -1,4 +1,4 @@
-package com.ecommerce.inventory;
+package com.ecommerce.inventory.inventory;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
