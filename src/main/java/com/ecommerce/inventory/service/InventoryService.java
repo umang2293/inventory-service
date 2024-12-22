@@ -20,13 +20,13 @@ public class InventoryService {
     public InventoryService(WebClient.Builder webClientBuilder,
                             RestTemplate restTemplate,
                             InventoryRepository inventoryRepository) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8081").build();
+        this.webClient = webClientBuilder.baseUrl("http://localhost:8072/product-catalog-service").build();
         this.restTemplate = restTemplate;
         this.inventoryRepository = inventoryRepository;
     }
 
     public ProductResponse checkProductAvailability(Long productId) {
-        return restTemplate.getForObject("http://localhost:8081/api/v1/products/" + productId, ProductResponse.class);
+        return restTemplate.getForObject("http://localhost:8072/product-catalog-service/api/v1/products/" + productId, ProductResponse.class);
     }
 
     public Mono<String> checkProductAvailabilityAsync(Long productId) {
