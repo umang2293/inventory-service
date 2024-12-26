@@ -56,4 +56,9 @@ public class InventoryService {
         inventory.setQuantity(inventoryDto.getQuantity());
         return inventoryRepository.save(inventory);
     }
+
+    public Inventory getRemainingInventoryByProductId(Long productId) {
+        return inventoryRepository.findByProductid(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + productId));
+    }
 }

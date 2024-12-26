@@ -38,4 +38,9 @@ public class InventoryController {
     public void updateInventory(@PathVariable Long productId, @PathVariable Integer quantity) {
         inventoryService.updateInventory(productId, quantity);
     }
+
+    @GetMapping("/getRemainingInventory/{productid}")
+    public ResponseEntity<Inventory> getRemainingInventory(@PathVariable Long productid) {
+        return ResponseEntity.ok(inventoryService.getRemainingInventoryByProductId(productid));
+    }
 }
